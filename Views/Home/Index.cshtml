@@ -1,0 +1,523 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .card {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+    }
+
+    .card-block {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.25rem;
+    }
+
+   
+
+  
+
+    a#registerLink{
+        color:white;
+    }
+
+    a#loginLink{
+        color: white;
+    }
+
+
+
+
+
+    .card-title {
+        margin-bottom: 0.75rem;
+    }
+
+    .card-subtitle {
+        margin-top: -0.375rem;
+        margin-bottom: 0;
+    }
+
+    .card-text:last-child {
+        margin-bottom: 0;
+    }
+
+    .card-link:hover {
+        text-decoration: none;
+    }
+
+    .card-link + .card-link {
+        margin-left: 1.25rem;
+    }
+
+    .card > .list-group:first-child .list-group-item:first-child {
+        border-top-right-radius: 0.25rem;
+        border-top-left-radius: 0.25rem;
+    }
+
+    .card > .list-group:last-child .list-group-item:last-child {
+        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+    }
+
+    .card-header {
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: #f7f7f9;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+        .card-header:first-child {
+            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+        }
+
+    .card-footer {
+        padding: 0.75rem 1.25rem;
+        background-color: #f7f7f9;
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+        .card-footer:last-child {
+            border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+        }
+
+    .card-header-tabs {
+        margin-right: -0.625rem;
+        margin-bottom: -0.75rem;
+        margin-left: -0.625rem;
+        border-bottom: 0;
+    }
+
+    .card-header-pills {
+        margin-right: -0.625rem;
+        margin-left: -0.625rem;
+    }
+
+    .card-primary {
+        background-color: #0275d8;
+        border-color: #0275d8;
+    }
+
+        .card-primary .card-header,
+        .card-primary .card-footer {
+            background-color: transparent;
+        }
+
+    .card-success {
+        background-color: #5cb85c;
+        border-color: #5cb85c;
+    }
+
+        .card-success .card-header,
+        .card-success .card-footer {
+            background-color: transparent;
+        }
+
+    .card-info {
+        background-color: #5bc0de;
+        border-color: #5bc0de;
+    }
+
+        .card-info .card-header,
+        .card-info .card-footer {
+            background-color: transparent;
+        }
+
+    .card-warning {
+        background-color: #f0ad4e;
+        border-color: #f0ad4e;
+    }
+
+        .card-warning .card-header,
+        .card-warning .card-footer {
+            background-color: transparent;
+        }
+
+    .card-danger {
+        background-color: #d9534f;
+        border-color: #d9534f;
+    }
+
+        .card-danger .card-header,
+        .card-danger .card-footer {
+            background-color: transparent;
+        }
+
+    .card-outline-primary {
+        background-color: transparent;
+        border-color: #0275d8;
+    }
+
+    .card-outline-secondary {
+        background-color: transparent;
+        border-color: #ccc;
+    }
+
+    .card-outline-info {
+        background-color: transparent;
+        border-color: #5bc0de;
+    }
+
+    .card-outline-success {
+        background-color: transparent;
+        border-color: #5cb85c;
+    }
+
+    .card-outline-warning {
+        background-color: transparent;
+        border-color: #f0ad4e;
+    }
+
+    .card-outline-danger {
+        background-color: transparent;
+        border-color: #d9534f;
+    }
+
+    .card-inverse {
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+        .card-inverse .card-header,
+        .card-inverse .card-footer {
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card-inverse .card-header,
+        .card-inverse .card-footer,
+        .card-inverse .card-title,
+        .card-inverse .card-blockquote {
+            color: #fff;
+        }
+
+            .card-inverse .card-link,
+            .card-inverse .card-text,
+            .card-inverse .card-subtitle,
+            .card-inverse .card-blockquote .blockquote-footer {
+                color: rgba(255, 255, 255, 0.65);
+            }
+
+                .card-inverse .card-link:focus, .card-inverse .card-link:hover {
+                    color: #fff;
+                }
+
+    .card-blockquote {
+        padding: 0;
+        margin-bottom: 0;
+        border-left: 0;
+    }
+
+    .card-img {
+        border-radius: calc(0.25rem - 1px);
+    }
+
+    .card-img-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1.25rem;
+    }
+
+    .card-img-top {
+        border-top-right-radius: calc(0.25rem - 1px);
+        border-top-left-radius: calc(0.25rem - 1px);
+    }
+
+    .card-img-bottom {
+        border-bottom-right-radius: calc(0.25rem - 1px);
+        border-bottom-left-radius: calc(0.25rem - 1px);
+    }
+
+    .statistics ul li {
+        padding: 10px 20px;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    @@media (min-width: 576px) {
+        .card-deck {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        }
+
+            .card-deck .card {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -webkit-flex: 1 0 0%;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+                .card-deck .card:not(:first-child) {
+                    margin-left: 15px;
+                }
+
+                .card-deck .card:not(:last-child) {
+                    margin-right: 15px;
+                }
+    }
+
+    @@media (min-width: 576px) {
+        .card-group {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        }
+
+            .card-group .card {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1 0 0%;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+            }
+
+                .card-group .card + .card {
+                    margin-left: 0;
+                    border-left: 0;
+                }
+
+                .card-group .card:first-child {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+
+                    .card-group .card:first-child .card-img-top {
+                        border-top-right-radius: 0;
+                    }
+
+                    .card-group .card:first-child .card-img-bottom {
+                        border-bottom-right-radius: 0;
+                    }
+
+                .card-group .card:last-child {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                    .card-group .card:last-child .card-img-top {
+                        border-top-left-radius: 0;
+                    }
+
+                    .card-group .card:last-child .card-img-bottom {
+                        border-bottom-left-radius: 0;
+                    }
+
+                .card-group .card:not(:first-child):not(:last-child) {
+                    border-radius: 0;
+                }
+
+                    .card-group .card:not(:first-child):not(:last-child) .card-img-top,
+                    .card-group .card:not(:first-child):not(:last-child) .card-img-bottom {
+                        border-radius: 0;
+                    }
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12 navbar navbar-default navbar-static-top">
+
+        <div class="container">
+            <div class="navbar-header" style="text-align: center;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="text-success navbar-brand">All Posts</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card statistics">
+            <div class="card-block">
+                <h4 class="card-title">Statistics</h4>
+            </div>
+            <ul style="list-style: none;">
+                <li><span id="numMembers" class="number-stt"> </span><span class="name-stt"> Members </span></li>
+                <li><span id="numThreads" class="number-stt"> </span><span class="name-stt"> Threads </span></li>
+                <li><span id="numTxs" class="number-stt"> </span><span class="name-stt"> Transactions </span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group row">
+            <div class="col-md-offset-2">
+                <textarea id="commentSpace" class="form-control">
+
+            </textarea>
+                <input id="commentText" type="button" value="Post" class="btn btn-info form-control" />
+            </div>
+        </div>
+        <div id="cmtTarget" class="row">
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="card" style="width: 20rem;">
+                <div class="card-block">
+                    <h4 class="card-title">Wallet Info</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span>Name:</span>
+                        <span id="assetName" class="label label-info"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span>Balance:</span>
+                        <span id="walletBal" class="label label-info"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="card statistics">
+                <div class="card-block">
+                    <h4 class="card-title">Top Users</h4>
+                </div>
+                <ul style="list-style: none;">
+                    <li><span class="name-stt"> srao10@gmail.com 20</span></li>
+                    <li><span class="name-stt"> nikhil@gmail.com 15</span></li>
+                    <li><span class="name-stt"> praveen@gmail.com 6</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/moment.min.js"></script>
+<!-- Create your template -->
+<script type="foo/bar" id='commentList'>
+    <%
+    _.each(response,function(item){
+    var date = new Date(parseInt(item.TimeStamp.substr(6)));
+    console.log(date);
+    %>
+    <div class="card">
+        <div class="card-block">
+            <h4 class="card-title"><%= item.Comment %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= item.UserId %></h6>
+            <a href="#" class="card-link">Updated on <%= date %></a>
+        </div>
+    </div>
+    <%
+    });
+    %>
+</script>
+<script>
+    $(document).ready(function () {
+        GetWalletInfo();
+        listComments();
+        getStats();
+        $("#commentText").on("click", function () {
+            var cmt = { comment: $("#commentSpace").val() };
+            $.ajax({
+                type: "POST",
+                url: "/Home/PostCommentAsync",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(cmt),
+                dataType: "json",
+                success: function (response) {
+                    $("#commentSpace").val('');
+                    listComments();
+                    GetWalletInfo();
+                    getStats();
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        });
+    });
+
+    function GetWalletInfo() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetWalletInfo",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response.length > 0) {
+                    $("#assetName").text(response[0].Name);
+                    $("#walletBal").text(response[0].Qty);
+                }
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+    function listComments() {
+        $.ajax({
+            type: "GET",
+            url: "/Home/ListComments",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var template = $("#commentList").html();
+                $("#cmtTarget").html(_.template(template)({ response: response }));
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+    function getStats() {
+
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetStats",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                $("#numMembers").text(response.users);
+                $("#numThreads").text(response.posts);
+                $("#numTxs").text(response.txCount);
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+</script>
